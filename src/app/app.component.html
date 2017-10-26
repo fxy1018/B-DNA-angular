@@ -1,50 +1,20 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div class="container">
 		<div class="row">
-			<a class="nav navbar-brand" href="#">{{title}}</a>
+			<a class="nav navbar-brand" href="/dashboard">{{title}}</a>
+<!--
 			<ul class="nav nav-tabs">
 				<li class="nav-item">
 					<a class="nav-link active" href="#">Gene Search</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="#">Experiment Search</a>
+					<a class="nav-link" routerLink="/experiment-search">Experiment Search</a>
 				</li>
 			</ul>
+-->
 	</div>    
 </div>
 
-<li *ngFor = "let experiment of experiments" (click)='onSelectExperiment(experiment)'>
-	<span class="badge">{{experiment.id}}</span>{{experiment.description}}
-</li>
-
-<div *ngIf='selectedExperiment'>
-	<label>id: </label>{{selectedExperiment.id}}
-    <label>name: </label>
-    <input [(ngModel)]="selectedExperiment.description" placeholder="description"/>
-</div>
-
-<div *ngIf='selectedExperiment' >
-	<li *ngFor = "let condition of conditions" (click)='onSelectCondition(condition)'>
-		{{condition.name}}
-	</li>
-</div>
-
-<div *ngIf='selectedCondition'>
-	<label>id: </label>{{selectedCondition.id}}
-    <label>name: </label>
-    <input [(ngModel)]="selectedCondition.name" placeholder="name"/>
-</div>
-
-<div *ngIf='selectedCondition' >
-	<li *ngFor = "let gene of genes" (click)='onSelectGene(gene)'>
-		{{gene.name}}
-	</li>
-</div>
-
-
-
-
-<h2>test</h2>
 
 <!--
 <div class = "container">
@@ -54,40 +24,7 @@
 </div>
 -->
 
+<router-outlet></router-outlet>
 
+<!--<experiment-search></experiment-search>-->
 
-
-
-
-
-
-
-	<div class="container" style="top:100px">
-      <!-- Example row of columns -->
-      <div class="row">
-        <div class="col-md-6">
-          <h2>Gene Search</h2>
-          <p>Tool for B-DNA gene expression search. </p>
-          <p><a class="btn btn-secondary" href="http://172.20.203.118:3838/bdna/gene_search" role="button">View details &raquo;</a></p>
-        </div>
-        <div class="col-md-6">
-          <h2>Experiment Search</h2>
-          <p>Tool for B-DNA experiment result search</p>
-          <p><a class="btn btn-secondary" href="http://172.20.203.118:3838/bdna/experiment_search" role="button">View details &raquo;</a></p>
-       </div>
-<!--
-	   <div class="col-md-4">
-          <h2>Upload CSV File</h2>
-          <p>Tool for B-DNA experiment result search</p>
-          <p><a class="btn btn-secondary" href="http://172.20.203.118:3838/csvtool" role="button">View details &raquo;</a></p>
-       </div>
--->
-      </div>
-
-      <hr>
-
-      <footer>
-        <p>&copy; Ironwood 2017</p>
-      </footer>
-   </div> <!-- /container -->
-	

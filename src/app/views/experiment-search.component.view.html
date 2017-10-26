@@ -1,0 +1,32 @@
+<li *ngFor = "let experiment of experiments" (click)='onSelectExperiment(experiment)'>
+	<span class="badge">{{experiment.id}}</span>{{experiment.description}}
+</li>
+
+<div *ngIf='selectedExperiment'>
+	<label>id: </label>{{selectedExperiment.id}}
+    <label>name: </label>
+    <input [(ngModel)]="selectedExperiment.description" placeholder="description"/>
+</div>
+
+<div *ngIf='selectedExperiment' >
+	<li *ngFor = "let condition of conditions" (click)='onSelectCondition(condition)'>
+		{{condition.name}}
+	</li>
+</div>
+
+<div *ngIf='selectedCondition'>
+	<label>id: </label>{{selectedCondition.id}}
+    <label>name: </label>
+    <input [(ngModel)]="selectedCondition.name" placeholder="name"/>
+</div>
+
+<div *ngIf='selectedCondition' >
+	<li *ngFor = "let gene of genes" (click)='onSelectGene(gene)'>
+		{{gene.name}}
+	</li>
+</div>
+
+<expression-detail [gene]='selectedGene'></expression-detail>
+
+
+<h2>test</h2>

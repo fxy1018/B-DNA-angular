@@ -1,0 +1,40 @@
+<div class="container" style="top:100px">
+		<!-- Example row of columns -->
+		<div class="row">
+			<div class="col-md-6">
+				<h2>Gene Search</h2>
+				<p>Tool for B-DNA gene expression search. </p>
+				<p><a class="btn btn-secondary" href="http://172.20.203.118:3838/bdna/gene_search" role="button">View details &raquo;</a></p>
+			</div>
+			<div class="col-md-6">
+				<h2>Experiment Search</h2>
+				<p>Tool for B-DNA experiment result search</p>
+				<p><a class="btn btn-secondary" routerLink="/experiment-search" role="button">View details &raquo;</a></p>
+		 </div>
+<!--
+	 <div class="col-md-4">
+				<h2>Upload CSV File</h2>
+				<p>Tool for B-DNA experiment result search</p>
+				<p><a class="btn btn-secondary" href="http://172.20.203.118:3838/csvtool" role="button">View details &raquo;</a></p>
+		 </div>
+-->
+		</div>
+
+		
+	<h3>Experiments</h3>
+	<div class="grid grid-pad">
+		<div *ngFor="let experiment of experiments" class="col-1-4">
+			<div>
+				<h4>{{experiment.description}}</h4>
+			</div>
+		</div>
+	</div>
+	
+	
+		<hr>
+
+		<footer>
+			<p>&copy; Ironwood 2017</p>
+		</footer>
+ </div> <!-- /container -->
+
