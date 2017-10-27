@@ -2,6 +2,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { AngularMultiSelectModule  } from 'angular2-multiselect-dropdown';
+
+
+
 
 import { AppComponent } from './app.component';
 import { ExperimentSearchComponent } from './components/experiment-search.component';
@@ -13,12 +17,15 @@ import { ExperimentService } from './services/experiment.service';
 
 
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
 		DashboardComponent,
 		ExperimentSearchComponent,
 		ExpressionDetailComponent,
+		
   ],
   imports: [
     BrowserModule,
@@ -37,7 +44,9 @@ import { ExperimentService } from './services/experiment.service';
 				path: 'dashboard',
 				component: DashboardComponent, 
 			},
-])
+		]),
+				
+		AngularMultiSelectModule,
 
 		
 		

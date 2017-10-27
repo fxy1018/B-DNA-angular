@@ -1,4 +1,4 @@
 export class Gene{
 	id: number;
-	name: string;
+	itemName: string;
 }

@@ -1,4 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import {  ParamMap } from '@angular/router';
+import { Location } from '@angular/common';
+
 import { Gene } from '../gene';
 
 

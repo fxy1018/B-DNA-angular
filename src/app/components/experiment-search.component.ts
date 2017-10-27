@@ -3,14 +3,14 @@ import { Gene } from '../gene';
 import { Experiment } from '../experiment';
 import { ExperimentService } from '../services/experiment.service';
 import { EXPERIMENTS } from '../mock-data/mock-experiment'
-
+import { IMultiSelectOption } from 'angular-2-dropdown-multiselect';
 
 export class Condition{
 	id: number;
-	name: string;
+	itemName: string;
 }
 
-export class GeneExpression{
+export class Expression{
 	id: number;
 	gene_id: number;
 	expression: number;
@@ -19,37 +19,38 @@ export class GeneExpression{
 }
 
 
+
 //#########fake data##########
 
 
 const CONDITIONS: Condition[]=[
-	{id: 1, name:'HFHF/ANGII/41-2272/22 DAYS'},
-	{id: 2, name:'condition2'},
-	{id: 3, name:'condition3'},
-	{id: 4, name:'condition4'},
-	{id: 5, name:'condition5'},
-	{id: 6, name:'condition6'},
-	{id: 7, name:'condition7'},
-	{id: 8, name:'condition8'},
-	{id: 9, name:'condition9'},
-	{id: 10, name:'condition10'},	
+	{id: 1, itemName:'HFHF/ANGII/41-2272/22 DAYS'},
+	{id: 2, itemName:'condition2'},
+	{id: 3, itemName:'condition3'},
+	{id: 4, itemName:'condition4'},
+	{id: 5, itemName:'condition5'},
+	{id: 6, itemName:'condition6'},
+	{id: 7, itemName:'condition7'},
+	{id: 8, itemName:'condition8'},
+	{id: 9, itemName:'condition9'},
+	{id: 10, itemName:'condition10'},	
 ];
 
 const GENES: Gene[] = [
-	{id: 1, name: 'PTGS2'},
-	{id: 2, name: 'gene2'},
-	{id: 3, name: 'gene3'},
-	{id: 4, name: 'gene4'},
-	{id: 5, name: 'gene5'},
-	{id: 6, name: 'gene6'},
-	{id: 7, name: 'gene7'},
-	{id: 8, name: 'gene8'},
-	{id: 9, name: 'gene9'},
-	{id: 10, name: 'gene10'},
-	{id: 11, name: 'gene11'},
+	{id: 1, itemName: 'PTGS2'},
+	{id: 2, itemName: 'gene2'},
+	{id: 3, itemName: 'gene3'},
+	{id: 4, itemName: 'gene4'},
+	{id: 5, itemName: 'gene5'},
+	{id: 6, itemName: 'gene6'},
+	{id: 7, itemName: 'gene7'},
+	{id: 8, itemName: 'gene8'},
+	{id: 9, itemName: 'gene9'},
+	{id: 10, itemName: 'gene10'},
+	{id: 11, itemName: 'gene11'},
 ]
 
-const EXPRESSIONS: GeneExpression[]=[
+const EXPRESSIONS: Expression[]=[
 	{id:1, gene_id: 1, expression: 1.1, experiment_id: 1, condition_id: 1},
 	{id:2, gene_id: 2, expression: 1.2, experiment_id: 1, condition_id: 1},
 	{id:3, gene_id: 3, expression: 1.3, experiment_id: 1, condition_id: 1},
@@ -63,6 +64,11 @@ const EXPRESSIONS: GeneExpression[]=[
 ]
 
 
+
+
+
+
+
 @Component({
   selector: 'experiment-search',
   templateUrl: '../views/experiment-search.component.view.html',
@@ -70,41 +76,107 @@ const EXPRESSIONS: GeneExpression[]=[
 })
 
 
+
+
+
+
 export class ExperimentSearchComponent implements OnInit {
   title = 'BDNA Analysis Tools';
 	experiments: Experiment[];
 	
-	conditions = CONDITIONS;
-	genes = GENES;
-	expressions = EXPRESSIONS;
+	conditions:Condition[];
+	genes: Gene[];
+	expressions: Expression[];
 	constructor(private experimentService: ExperimentService){	}
 	
 	getExperiemnts(): void{
 		this.experimentService.getExperiments().then(experiments => this.experiments = experiments);
 	}
+	
+	getConditions(exp_id): void{
+		console.log(exp_id)
+		this.conditions = CONDITIONS;
+	}
+	
+	getGenes(cons): void{
+		console.log(cons)
+		this.genes = GENES;
+	}
+	
+	
 //	
 	ngOnInit(): void{
-		this.getExperiemnts();
+				this.getExperiemnts();
+//		    this.getConditions(this.selectedExperiment['id']);
+        this.selectedConditions = null;
+        this.dropdownConditoinsSettings = { 
+                                  singleSelection: false, 
+                                  text:"Select Conditions",
+                                  selectAllText:'Select All',
+                                  unSelectAllText:'UnSelect All',
+                                  enableSearchFilter: true,
+                                  classes:"myclass custom-class"
+                                };
+		
+				this.selectedGenes = null;
+				this.dropdownGenesSettings = { 
+                                  singleSelection: false, 
+                                  text:"Select Genes",
+                                  selectAllText:'Select All',
+                                  unSelectAllText:'UnSelect All',
+                                  enableSearchFilter: true,
+                                  classes:"myclass custom-class"
+                                };		
 	}
-	
-	
-	
 	
 	selectedExperiment: Experiment;
-	selectedCondition: Condition;
-	selectedGene: Gene;
-	
-	onSelectExperiment(experiment: Experiment): void {
-		this.selectedExperiment = experiment;
-	};
-	
-	onSelectCondition(condition: Condition):void{
-		this.selectedCondition = condition;
+  selectedConditions: Condition[];
+  dropdownConditoinsSettings = {};
+   
+	onConditionsSelect(item:any){
+			console.log(item);
+			console.log(this.selectedConditions);
+	}
+	OnConditionsDeSelect(item:any){
+			console.log(item);
+			console.log(this.selectedConditions);
+	}
+	onConditionsSelectAll(items: any){
+			console.log(items);
+	}
+	onConditionsDeSelectAll(items: any){
+			console.log(items);
 	}
 	
-	onSelectGene(gene: Gene):void{
-		this.selectedGene = gene;
+	
+	selectedGenes: Gene[];
+  dropdownGenesSettings = {};
+
+	onGenesSelect(item:any){
+			console.log(item);
+			console.log(this.selectedGenes);
 	}
+	OnGenesDeSelect(item:any){
+			console.log(item);
+			console.log(this.selectedGenes);
+	}
+	onGenesSelectAll(items: any){
+			console.log(items);
+	}
+	onGenesDeSelectAll(items: any){
+			console.log(items);
+	}
+	
+	getExpressions(): void{
+		this.expressions = EXPRESSIONS
+		console.log(this.expressions)
+		
+		
+	}
+	
+	
+	
+	
 	
 	
 	
