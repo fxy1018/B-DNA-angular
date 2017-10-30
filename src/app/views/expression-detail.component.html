@@ -1,0 +1,36 @@
+<ul class="nav nav-tabs">
+    <li class="nav-item">
+        <a class="nav-link active" href="#">Heapmap</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#">Bar Chart</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#">Box Plot</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link disabled" href="#">Data Table</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link disabled" href="#">ANOVA</a>
+    </li>
+    
+</ul>
+
+
+<heatmap [data]="expressions"></heatmap>
+
+<bar-chart [data]="expressions"></bar-chart>
+
+<box-plot [data]="expressions"></box-plot>
+
+<data-table [data]="expressions"></data-table>
+<!--<div *ngIf="expressions">-->
+    <!---->
+    <!---->
+    <!---->
+    <!--<h2 *ngFor="let expression of expressions">{{expression.id}}</h2>-->
+
+
+
+<!--</div>-->

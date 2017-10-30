@@ -8,6 +8,7 @@ import { ExperimentService } from '../services/experiment.service';
 })
 
 export class DashboardComponent implements OnInit{
+	title = 'BDNA Analysis Tools';
 	experiments: Experiment[] = [];
 	
 	constructor(private experimentService:ExperimentService){}

@@ -6,12 +6,15 @@ import { AngularMultiSelectModule  } from 'angular2-multiselect-dropdown';
 
 
 
-
 import { AppComponent } from './app.component';
 import { ExperimentSearchComponent } from './components/experiment-search.component';
 import { DashboardComponent } from './components/dashboard.component';
 
 import { ExpressionDetailComponent } from './components/expression-detail.component';
+import { HeatmapComponent } from './components/heatmap.component';
+import { BarChartComponent } from './components/bar-chart.component';
+import { BoxPlotComponent } from './components/box-plot.component';
+import { DataTableComponent } from './components/data-table.component';
 
 import { ExperimentService } from './services/experiment.service';
 
@@ -25,7 +28,10 @@ import { ExperimentService } from './services/experiment.service';
 		DashboardComponent,
 		ExperimentSearchComponent,
 		ExpressionDetailComponent,
-		
+	  	HeatmapComponent,
+	    BarChartComponent,
+	    BoxPlotComponent,
+	  	DataTableComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,6 +50,10 @@ import { ExperimentService } from './services/experiment.service';
 				path: 'dashboard',
 				component: DashboardComponent, 
 			},
+			{
+				path:'gene-search',
+				component: ExpressionDetailComponent,
+			}
 		]),
 				
 		AngularMultiSelectModule,

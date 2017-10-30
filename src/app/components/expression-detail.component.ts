@@ -3,17 +3,15 @@ import {  ParamMap } from '@angular/router';
 import { Location } from '@angular/common';
 
 import { Gene } from '../gene';
-
+import { Expression } from './experiment-search.component';
 
 @Component({
 	selector: 'expression-detail',
-	template: `
-		<div *ngIf="gene">
-			<h2>{{gene.name}}</h2>
-`,
-	
+	templateUrl: '../views/expression-detail.component.html',
 })
 
 export class ExpressionDetailComponent {
-	@Input() gene: Gene
+	@Input() expressions: Expression[];
+
+
 }
