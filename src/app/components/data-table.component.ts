@@ -6,6 +6,20 @@ import { EXPERIMENTS } from '../mock-data/mock-experiment'
 import { IMultiSelectOption } from 'angular-2-dropdown-multiselect';
 import { Expression } from './experiment-search.component';
 
+export class Name{
+	id: number;
+	firstname: string;
+	lastname: string;
+	username: string;
+}
+
+const NAMES: Name[] =[
+	{id:1, firstname:'Mark', lastname:'Otto', username:'@mdo'},
+	{id:2, firstname:'Jacob', lastname:'Thornton	', username:'@fat'},
+	{id:3, firstname:'Larry', lastname:'the Bird	', username:'@twitter'}
+]
+
+
 
 
 
@@ -34,8 +48,11 @@ export class DataTableComponent implements OnInit {
     // layout = {barmode:'group'};
     // options = null;
     // displayRawData = null;
-
+		
+		names: Name[];
+	
     ngOnInit(): void{
+				this.names = NAMES;
         console.log('hello from heatmap')
         console.log(this.data)
         this.data = [{
@@ -44,7 +61,14 @@ export class DataTableComponent implements OnInit {
             type: 'bar'
         }]
         Plotly.newPlot('datatable', this.data);
-        $('#data_table_exp').DataTable();
+        $('#data_table_exp').DataTable({
+					"data": NAMES,
+					"columns": [
+          {'data':'id'},
+          {'data':'firstname'},
+          {'data':'lastname'},
+          {'data':'username'}]
+				});
 
 
     };

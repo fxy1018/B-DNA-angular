@@ -5,6 +5,7 @@
     </div>
 </div>
 
+<!--<div *ngIf="names?.length;else no_data_templ" >-->
 <table class="table table-striped" id="data_table_exp">
     <thead>
     <tr>
@@ -14,28 +15,18 @@
         <th>Username</th>
     </tr>
     </thead>
-    <tbody>
-    <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
+<!--    <tbody>-->
+<!--
+    <tr *ngFor='let name of names'>
+        <th scope="row">{{name.id}}</th>
+        <td>{{name.firstname}}</td>
+        <td>{{name.lastname}}</td>
+        <td>{{name.username}}</td>
     </tr>
-    <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-    </tr>
-    <tr>
-        <th scope="row">3</th>
-        <td>Larry</td>
-        <td>the Bird</td>
-        <td>@twitter</td>
-    </tr>
-    </tbody>
+-->
+<!--    </tbody>-->
 </table>
-
+<!--</div>-->
 
 <!--<div *ngIf="displayRawData">-->
 <!--raw data:-->
