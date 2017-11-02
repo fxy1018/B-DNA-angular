@@ -18,9 +18,9 @@ import { DataTableComponent } from './components/data-table.component';
 
 import { ExperimentService } from './services/experiment.service';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-
-
+import { AppRoutingModule } from "./app-routing.module";
 
 @NgModule({
   declarations: [
@@ -28,34 +28,16 @@ import { ExperimentService } from './services/experiment.service';
 		DashboardComponent,
 		ExperimentSearchComponent,
 		ExpressionDetailComponent,
-	  	HeatmapComponent,
-	    BarChartComponent,
-	    BoxPlotComponent,
-	  	DataTableComponent,
+		HeatmapComponent,
+		BarChartComponent,
+		BoxPlotComponent,
+		DataTableComponent,
   ],
   imports: [
     BrowserModule,
 		FormsModule,
-		RouterModule.forRoot([
-			{
-				path:'',
-				redirectTo: '/dashboard',
-				pathMatch: 'full',
-			},
-			{
-				path: 'experiment-search',
-				component: ExperimentSearchComponent,
-			},
-			{
-				path: 'dashboard',
-				component: DashboardComponent, 
-			},
-			{
-				path:'gene-search',
-				component: ExpressionDetailComponent,
-			}
-		]),
-				
+		AppRoutingModule,
+		BrowserAnimationsModule,		
 		AngularMultiSelectModule,
 
 		

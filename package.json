@@ -23,7 +23,10 @@
     "@angular/router": "^4.2.4",
     "angular-2-dropdown-multiselect": "^1.6.0",
     "angular2-multiselect-dropdown": "^1.3.4",
+    "cdk": "0.0.0",
     "core-js": "^2.4.1",
+    "hammerjs": "^2.0.8",
+    "material": "^0.2.4",
     "rxjs": "^5.4.2",
     "zone.js": "^0.8.14"
   },

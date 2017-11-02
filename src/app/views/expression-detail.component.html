@@ -1,4 +1,5 @@
-<ul class="nav nav-tabs">
+<!--
+<ul class="nav nav-tabs" >
     <li class="nav-item">
         <a class="nav-link active" href="#">Heapmap</a>
     </li>
@@ -16,7 +17,25 @@
     </li>
     
 </ul>
+-->
 
+<nav md-tab-nav-bar >
+        <a md-tab-link
+           *ngFor="let routeLink of routeLinks; let i = index;"
+           [routerLink]="routeLink.link"
+           routerLinkActive="mat-tab-link-active"
+           #rla="routerLinkActive"
+           [active]="activeLinkIndex === i"
+           (click)="activeLinkIndex = i"
+           [routerLinkActiveOptions]="{exact: true}"
+        >
+            {{routeLink.label}}
+        </a>
+</nav>
+
+<router-outlet></router-outlet>
+
+<!--
 
 <heatmap [data]="expressions"></heatmap>
 
@@ -25,6 +44,7 @@
 <box-plot [data]="expressions"></box-plot>
 
 <data-table [data]="expressions"></data-table>
+-->
 <!--<div *ngIf="expressions">-->
     <!---->
     <!---->
