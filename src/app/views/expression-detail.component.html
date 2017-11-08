@@ -1,39 +1,24 @@
-<!--
-<ul class="nav nav-tabs" >
-    <li class="nav-item">
-        <a class="nav-link active" href="#">Heapmap</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="#">Bar Chart</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="#">Box Plot</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link disabled" href="#">Data Table</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link disabled" href="#">ANOVA</a>
-    </li>
-    
-</ul>
--->
 
-<nav md-tab-nav-bar >
-        <a md-tab-link
-           *ngFor="let routeLink of routeLinks; let i = index;"
-           [routerLink]="routeLink.link"
-           routerLinkActive="mat-tab-link-active"
-           #rla="routerLinkActive"
-           [active]="activeLinkIndex === i"
-           (click)="activeLinkIndex = i"
-           [routerLinkActiveOptions]="{exact: true}"
-        >
-            {{routeLink.label}}
-        </a>
+<nav mat-tab-nav-bar>
+	<a mat-tab-link
+		 *ngFor="let routeLink of routeLinks;"
+		 [routerLink]='routeLink.link'
+		 routerLinkActive #rla="routerLinkActive"
+		 [active] = "activeLinkIndex===routeLink.index"
+		 (click)='activeLinkIndex=routeLink.index'
+		 [routerLinkActiveOptions]="{exact:true}">
+	
+		{{routeLink.label}}
+	</a>
 </nav>
-
 <router-outlet></router-outlet>
+
+
+<!-- Copyright 2017 Google Inc. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at http://angular.io/license -->
+
+
 
 <!--
 

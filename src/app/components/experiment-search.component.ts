@@ -87,6 +87,7 @@ export class ExperimentSearchComponent implements OnInit {
 	conditions:Condition[];
 	genes: Gene[];
 	expressions: Expression[];
+	
 	constructor(private experimentService: ExperimentService){	}
 	
 	getExperiemnts(): void{
@@ -170,8 +171,10 @@ export class ExperimentSearchComponent implements OnInit {
 	getExpressions(): void{
 		this.expressions = EXPRESSIONS
 		console.log(this.expressions)
-		
-		
+	}
+	
+	downloadExpressions():void{
+		console.log("download data button function")
 	}
 	
 	

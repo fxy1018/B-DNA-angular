@@ -9,6 +9,8 @@ import { HeatmapComponent } from './components/heatmap.component';
 import { BarChartComponent } from './components/bar-chart.component';
 import { BoxPlotComponent } from './components/box-plot.component';
 import { DataTableComponent } from './components/data-table.component';
+import { AnovaComponent } from './components/anova.component';
+
 
 const routes: Routes = [
   {
@@ -16,12 +18,19 @@ const routes: Routes = [
 		redirectTo: '/dashboard',
 		pathMatch: 'full',
 	},
-	{path: 'experiment-search', component: ExperimentSearchComponent,},
+	{path: 'experiment-search', component: ExperimentSearchComponent,
+	children:[
+		{path: 'heatmap', component: HeatmapComponent},
+		{path: 'barchart', component: BarChartComponent},
+		{path: 'datatable', component: DataTableComponent},
+		{path: 'boxplot', component: BoxPlotComponent},
+		{path: 'anova', component: AnovaComponent},
+		
+		
+	]},
 	{path: 'dashboard', component: DashboardComponent, },
 	{path:'gene-search', component: ExpressionDetailComponent,},
-	{path: 'heatmap', component: HeatmapComponent},
-	{path: 'barchart', component: BarChartComponent},
-	{path: 'datatable', component: DataTableComponent},
+	
 	
 ];
 

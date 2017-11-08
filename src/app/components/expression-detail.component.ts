@@ -7,10 +7,13 @@ import { Router } from '@angular/router';
 import { Gene } from '../gene';
 import { Expression } from './experiment-search.component';
 
+
 @Component({
 	selector: 'expression-detail',
 	templateUrl: '../views/expression-detail.component.html',
 })
+
+
 
 export class ExpressionDetailComponent implements OnInit{
 	@Input() expressions: Expression[];
@@ -41,16 +44,21 @@ export class ExpressionDetailComponent implements OnInit{
 					label: 'Datatable',
 					link: './datatable',
 					index:3
+				},
+				{
+					label: 'Anova',
+					link: './anova',
+					index:4
 				}
 
 			]
 	};
 	
 	ngOnInit(): void {
-		this.router.events.subscribe((res) => {
-			this.activeLinkIndex = this.routeLinks.indexOf(
-				this.routeLinks.find(tab=> tab.link==='.'+this.router.url));
-		});
+//		this.router.events.subscribe((res) => {
+//			this.activeLinkIndex = this.routeLinks.indexOf(
+//				this.routeLinks.find(tab=> tab.link==='.'+this.router.url));
+//		});
 	}
 	
 	

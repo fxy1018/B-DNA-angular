@@ -3,7 +3,10 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { AngularMultiSelectModule  } from 'angular2-multiselect-dropdown';
-
+import {MatButtonModule, 
+				MatCheckboxModule,
+			 	MatTabsModule,
+			} from '@angular/material';
 
 
 import { AppComponent } from './app.component';
@@ -15,6 +18,7 @@ import { HeatmapComponent } from './components/heatmap.component';
 import { BarChartComponent } from './components/bar-chart.component';
 import { BoxPlotComponent } from './components/box-plot.component';
 import { DataTableComponent } from './components/data-table.component';
+import { AnovaComponent} from './components/anova.component';
 
 import { ExperimentService } from './services/experiment.service';
 
@@ -32,6 +36,7 @@ import { AppRoutingModule } from "./app-routing.module";
 		BarChartComponent,
 		BoxPlotComponent,
 		DataTableComponent,
+		AnovaComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,7 +44,9 @@ import { AppRoutingModule } from "./app-routing.module";
 		AppRoutingModule,
 		BrowserAnimationsModule,		
 		AngularMultiSelectModule,
-
+		MatButtonModule, 
+		MatCheckboxModule,
+		MatTabsModule,
 		
 		
   ],
